@@ -1,6 +1,8 @@
 # Sample Data
 
-`product_usage_events.csv` is fictional and intentionally messy. It is not meant to represent any real company, client, or product.
+`product_usage_events.csv` is fictional and intentionally messy. It is provided for Track A of the challenge.
+
+Before using it, read the fictional domain context in [../domain-packet.md](../domain-packet.md).
 
 Each row is a daily summary for a workflow inside a fictional product.
 
@@ -20,4 +22,3 @@ Fields:
 - `notes`: experiment or data-quality context
 
 Some values are missing, inconsistent, duplicated, or suspicious by design.
-

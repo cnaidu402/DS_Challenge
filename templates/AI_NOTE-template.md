@@ -4,7 +4,6 @@
 
 ## How You Used It
 
-## One Thing AI Helped With
+## One Prompt, Workflow, Or Moment That Helped
 
 ## One Thing You Verified Or Decided Yourself
-
