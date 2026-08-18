@@ -1,49 +1,25 @@
-# Data Science Intern Build Challenge
+# Submission README
 
-A lightweight build challenge for Data Science Intern candidates to show how they think, build, and work with AI.
+## Track Chosen
+Track A: Fictional Domain Packet
 
-This is not a puzzle with one hidden correct answer. It is also not a "don't use AI" exercise. You may use AI as much as you want. The signal is whether you can give it useful context, question its output, and make good decisions in a messy domain.
+## What I Built
+I built a lightweight Streamlit dashboard ("SignalDesk Workflow Health Check") that highlights exactly what's working and what's suspicious in the workflow usage data. It focuses on isolating the effects of two recent changes: the August 4th prompt update and the August 7th review policy change.
 
-## Quick Version
+## Who It Is For
+The fictional product team managing SignalDesk, to help them quickly cut through data noise and make better next decisions.
 
-Target time: 90 minutes. Please stop at 2 hours.
+## Data Or Source Used
+The provided `product_usage_events.csv` dataset.
 
-Pick **one** track:
+## Assumptions I Made
+- `user_rating` and `acceptance_rate` are the truest indicators of workflow health, far outranking the model's self-reported `median_confidence`.
+- The traffic spike on August 5th (from a demo account) is noise that should be excluded from performance baselines.
 
-1. **Fictional Domain Packet**: read [domain-packet.md](domain-packet.md) and use the messy dataset in [sample-data/product_usage_events.csv](sample-data/product_usage_events.csv).
-2. **Bring Your Own Domain**: use a small public or synthetic dataset from a domain you care about.
-3. **Tiny Model / Eval**: use a small model, prompt, heuristic, or evaluation workflow to answer a practical question in a domain you choose.
+## Data Issues Or Caveats I Noticed
+- **Inconsistent casing:** The Product team's name was inconsistently cased (e.g., "product" vs "Product").
+- **Missing/invalid values:** Some ratings were missing, and confidence scores were occasionally entered as text ("n/a").
+- **Duplicates:** There were duplicate rows (e.g., on Aug 5th for Lead Summary) that needed deduplication.
 
-Build one small useful artifact for a teammate. Acceptable artifacts include:
-
-- a short notebook;
-- a small Streamlit app;
-- a simple script with clear output;
-- a lightweight web page;
-- a tiny internal-tool style interface.
-
-Please also include:
-
-- `README.md`: what you built, who it is for, data/source used, assumptions, issues noticed, and what you would do next;
-- `AI_NOTE.md`: whether/how you used AI, what helped, and what you verified or decided yourself.
-
-## What We Care About
-
-- Domain digestion: can you understand unfamiliar context quickly?
-- Scope judgment: did you pick something finishable and useful?
-- Data/source judgment: did you notice weirdness without getting stuck?
-- Product sense: would this help a real teammate?
-- Engineering fundamentals: does it run, and is it understandable?
-- AI collaboration: if you used AI, did you use it thoughtfully?
-
-## What We Do Not Care About
-
-- Perfect polish.
-- The most accurate model.
-- A complex app.
-- A long report.
-- Legal-tech knowledge.
-- LeetCode-style cleverness.
-- Spending money on cloud tools.
-
-Read the full prompt in [challenge.md](challenge.md), and choose a track from [tracks.md](tracks.md).
+## What I Would Do Next With More Time
+I would build an automated anomaly detection check into this dashboard that runs daily. It would alert the team immediately if `flag_rate` spikes unexpectedly (as it did on Aug 7) or if non-production test accounts flood the data stream, preventing these issues from persisting unnoticed.
